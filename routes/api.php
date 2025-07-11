@@ -18,3 +18,6 @@ Route::controller(AuthController::class)
         Route::get('/test', 'testRole')->middleware('auth:api', 'role:student');
         Route::post('/logout', 'logout')->middleware('auth:api');
     });
+
+
+
