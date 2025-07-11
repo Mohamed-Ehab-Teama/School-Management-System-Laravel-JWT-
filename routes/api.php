@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ClassroomController;
 use App\Http\Controllers\API\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,11 @@ Route::controller(AuthController::class)
 
 
 
+/**
+ * ========     Classroom Routes     ===============
+ */
+Route::prefix('admin')
+    ->middleware(['auth:api', 'role:admin'])
+    ->group(function () {
+        Route::apiResource('classrooms', ClassroomController::class);
+    });
